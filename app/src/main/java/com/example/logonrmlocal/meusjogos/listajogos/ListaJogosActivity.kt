@@ -18,7 +18,9 @@ class ListaJogosActivity : AppCompatActivity() {
 
 
         rvJogos.adapter = JogosAdapter(this, getJogos(), {jogo ->
-            startActivity(Intent(this,  DetalheActivity::class.java))
+            val detalheIntent = Intent(this, DetalheActivity::class.java)
+            detalheIntent.putExtra("JOGO", jogo)
+            startActivity(detalheIntent)
         })
 
         rvJogos.layoutManager = LinearLayoutManager(this)
